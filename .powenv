@@ -1,0 +1,12 @@
+export PATH ; PATH="/Users/jamilabreu/.rvm/gems/ruby-2.0.0-p0@rails40/bin:/Users/jamilabreu/.rvm/gems/ruby-2.0.0-p0@global/bin:/Users/jamilabreu/.rvm/rubies/ruby-2.0.0-p0/bin:/Users/jamilabreu/.rvm/bin:$PATH"
+export rvm_env_string ; rvm_env_string='ruby-2.0.0-p0@rails40'
+export rvm_path ; rvm_path='/Users/jamilabreu/.rvm'
+export rvm_ruby_string ; rvm_ruby_string='ruby-2.0.0-p0'
+export rvm_gemset_name ; rvm_gemset_name='rails40'
+export RUBY_VERSION ; RUBY_VERSION='ruby-2.0.0-p0'
+export GEM_HOME ; GEM_HOME='/Users/jamilabreu/.rvm/gems/ruby-2.0.0-p0@rails40'
+export GEM_PATH ; GEM_PATH='/Users/jamilabreu/.rvm/gems/ruby-2.0.0-p0@rails40:/Users/jamilabreu/.rvm/gems/ruby-2.0.0-p0@global'
+export MY_RUBY_HOME ; MY_RUBY_HOME='/Users/jamilabreu/.rvm/rubies/ruby-2.0.0-p0'
+export IRBRC ; IRBRC='/Users/jamilabreu/.rvm/rubies/ruby-2.0.0-p0/.irbrc'
+unset MAGLEV_HOME
+unset RBXOPT
