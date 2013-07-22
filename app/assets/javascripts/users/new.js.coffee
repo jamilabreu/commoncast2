@@ -17,7 +17,7 @@ jQuery ->
     formatSelection: (community) ->
       community.hashtag
 
-  $('.learn-more a').on 'click', (e) ->
-    e.preventDefault()
-    $('.learn-more a i').toggleClass('icon-caret-right icon-caret-down')
-    $('.learn-more-hidden').toggle()
+  # $('.learn-more a').on 'click', (e) ->
+  #   e.preventDefault()
+  #   $('.learn-more a i').toggleClass('icon-caret-right icon-caret-down')
+  #   $('.learn-more-hidden').toggle()

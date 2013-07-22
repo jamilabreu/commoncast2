@@ -36,6 +36,7 @@ abbr
           color: #FFF
       // &:last-child
       //   a
+      //     border-right: 1px solid #31363E
       //     i
       //       padding-right: 8px
 
@@ -45,6 +46,7 @@ abbr
 
 .logo
   a
+    // border-left: 1px solid #31363E
     border-right: 1px solid #31363E
     color: #9191A1
     display: inline-block
@@ -58,6 +60,7 @@ abbr
 
 // NAVIGATION
 .navigation
+  // background: $BEIGE
   ul
     list-style: none
     li
@@ -65,7 +68,7 @@ abbr
       width: 50%
       a
         background: $BEIGE
-        border-top: 1px solid darken($BEIGE, 15%)
+        // border-top: 1px solid darken($BEIGE, 15%)
         color: $GREY
         display: block
         font-weight: 500
@@ -74,18 +77,23 @@ abbr
         i
           margin-right: 8px
         &:hover
-          color: #555
+          color: $BLACK
       &:first-child
         a
-          border-radius: 0 0 0 3px
+          border-radius: 0 0 0 4px
           margin-right: 1px
+          // border-right: 1px solid $GREY
+          // border-left: 1px solid $GREY
       &:last-child
         a
-          border-radius: 0 0 3px 0
+          border-radius: 0 0 4px 0
+          // border-right: 1px solid $GREY
 
 .navigation ul li.active a
   background: $ORANGE
-  border-color: $ORANGE-DARK
+  // border-top-color: $ORANGE-DARK
+  // border-left: 1px solid #999
+  // border-right: 1px solid #999
   color: #FFF
 
 .community-name
@@ -123,7 +131,7 @@ abbr
   border-color: $ORANGE
   border: 1px solid $BEIGE
   border-bottom-color: #FFF
-  border-radius: 3px 3px 0 0
+  border-radius: 4px 4px 0 0
   color: $ORANGE
   &:hover
     color: $ORANGE
@@ -131,18 +139,21 @@ abbr
 // POST
 .post
   border-bottom: 1px solid $BEIGE
+  // border-left: 1px solid $BEIGE
+  // border-right: 1px solid $BEIGE
 
 .post-actions
   float: right
   a
     display: block
     font-size: emCalc(17px)
+    padding: 20px 15px
     &:first-child
       border-bottom: 1px solid $BEIGE
-      padding: 20px 3px 10px
+      padding-bottom: 10px
     &:last-child
       color: #CCC
-      padding: 10px 3px 20px
+      padding-top: 10px
       &:hover
         color: $ORANGE
 .post-actions a.approved
@@ -152,7 +163,7 @@ abbr
 
 .post-main
   line-height: 1.2
-  margin-right: 20px
+  margin-right: 36px
   padding: 20px 25px
 
 .post-content
@@ -241,10 +252,9 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
     &:hover
       color: $ORANGE-DARK
 
-.learn-more-hidden
+.learn-more-steps
   border-top: 1px solid $BEIGE
   color: $NAVY
-  display: none
   margin-top: 2em
   padding: 30px 1em 5px
   text-align: left
