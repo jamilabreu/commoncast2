@@ -188,9 +188,11 @@ form
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"],
 input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"],
 input[type="tel"], input[type="time"], input[type="url"], textarea
+  border-radius: 0
   height: emCalc(37px) + 0.4em
   font-size: emCalc(16px)
   padding: 0.70em
+  -webkit-appearance: none
 
 .form-actions
   padding-top: 1em
@@ -301,6 +303,11 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   .column, .columns
     padding: 0
 
+  // HEADER
+  .logo
+    a
+      font-size: emCalc(20px)
+
   // NAVIGATION
   .navigation
     ul
@@ -324,6 +331,10 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
     border-left: 0
     border-right: 0
     border-radius: 0
+
+  // NEW POST
+  #post_content
+    height: 100px
 
   // POST
   .post-actions
