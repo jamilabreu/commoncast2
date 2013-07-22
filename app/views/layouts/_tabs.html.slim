@@ -1,0 +1,14 @@
+.tabs
+  ul
+    li class=("active" if params[:recent])
+      = link_to url_for(only_path: false, overwrite_params: {}, recent: true) do
+        i.icon-time
+        | Recent
+    li class=("active" unless params[:recent] || params[:rewind])
+      = link_to url_for(only_path: false, overwrite_params: {}) do
+        i.icon-heart-empty
+        | Relevant
+    li class=("active" if params[:rewind])
+      = link_to url_for(only_path: false, overwrite_params: {}, rewind: true) do
+        i.icon-undo
+        | Rewind

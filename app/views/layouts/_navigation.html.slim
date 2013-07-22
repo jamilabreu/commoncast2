@@ -1,0 +1,13 @@
+- if @community.present?
+  .community-name
+    = @community.hashtag
+.navigation
+  ul
+    li class=("active" if current_page? authenticated_root_path)
+      = link_to root_path do
+        i.icon-home
+        | Home
+    li class=("active" if current_page? communities_path)
+      = link_to communities_path do
+        i.icon-reorder
+        | Browse

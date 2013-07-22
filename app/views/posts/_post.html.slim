@@ -1,0 +1,26 @@
+.post.group
+  .post-actions
+    = link_to root_path, class: "#{'approved' if post.approved?}" do
+      i class=(post.approved? ? "icon-check" : "icon-unchecked")
+    = link_to root_path do
+      i.icon-remove
+  .post-main
+    .post-content
+      = post.content
+    .post-hashtags
+      = post.communities.map { |community| link_to community.hashtag, community }.join(" ").html_safe
+    - if params[:recent]
+      .post-created
+        = time_ago_in_words(post.created_at)
+        / abbr class="timeago" title=(post.created_at.iso8601)
+        / =
+    / .post-user
+    /   = link_to post.user.name, root_path
+    / .post-vote
+      / - post.communities.each do |community|
+      /   = link_to community.hashtag, community
+
+    /   = link_to root_path, class: "#{'approved' if post.approved?}" do
+    /     i.icon-ok
+    /   = link_to root_path do
+    /     i.icon-remove

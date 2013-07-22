@@ -1,0 +1,337 @@
+// PALETTE
+$BEIGE: #E6E3D7
+$BLACK: #31363E
+$GREEN: #397C47//#08AF8B
+$GREY: #706C75
+$NAVY: #464A52
+$ORANGE: #F06026//#F96A54
+$ORANGE-DARK: #EE4422
+
+abbr
+  border: 0
+
+.group:after
+  content: ""
+  display: table
+  clear: both
+
+.button
+  box-shadow: 0 3px 0 $ORANGE-DARK
+
+// HEADER
+.header
+  background: $NAVY
+  border-bottom: 1px solid $BLACK
+  ul
+    list-style: none
+    li
+      display: inline-block
+      a
+        color: #9191A1
+        display: block
+        padding: 10px 24px
+        i
+          padding-right: 8px
+        &:hover
+          color: #FFF
+      // &:last-child
+      //   a
+      //     i
+      //       padding-right: 8px
+
+.header ul li.active a
+  background: $BLACK
+  color: #FFF
+
+.logo
+  a
+    border-right: 1px solid #31363E
+    color: #9191A1
+    display: inline-block
+    float: left
+    font-family: "aw-conqueror-carved-two"
+    font-size: emCalc(25px)
+    font-weight: 100
+    padding: 10px 24px
+    &:hover
+      color: #FFF
+
+// NAVIGATION
+.navigation
+  ul
+    list-style: none
+    li
+      display: inline-block
+      width: 50%
+      a
+        background: $BEIGE
+        border-top: 1px solid darken($BEIGE, 15%)
+        color: $GREY
+        display: block
+        font-weight: 500
+        padding: 10px 0
+        text-align: center
+        i
+          margin-right: 8px
+        &:hover
+          color: #555
+      &:first-child
+        a
+          border-radius: 0 0 0 3px
+          margin-right: 1px
+      &:last-child
+        a
+          border-radius: 0 0 3px 0
+
+.navigation ul li.active a
+  background: $ORANGE
+  border-color: $ORANGE-DARK
+  color: #FFF
+
+.community-name
+  background: $BLACK
+  color: #FFF
+  padding: 10px 0
+  text-align: center
+  i
+    margin-right: 8px
+
+// TABS
+.tabs
+  border-bottom: 1px solid $BEIGE
+  margin-top: 20px
+  ul
+    list-style: none
+    li
+      display: inline-block
+      width: 33.3%
+      a
+        border-bottom: 1px solid $BEIGE
+        color: #999
+        display: block
+        font-weight: 500
+        padding: 12px 0
+        position: relative
+        top: 1px
+        text-align: center
+        i
+          margin-right: 8px
+        &:hover
+          color: #777
+
+.tabs ul li.active a
+  border-color: $ORANGE
+  border: 1px solid $BEIGE
+  border-bottom-color: #FFF
+  border-radius: 3px 3px 0 0
+  color: $ORANGE
+  &:hover
+    color: $ORANGE
+
+// POST
+.post
+  border-bottom: 1px solid $BEIGE
+
+.post-actions
+  float: right
+  a
+    display: block
+    font-size: emCalc(17px)
+    &:first-child
+      border-bottom: 1px solid $BEIGE
+      padding: 20px 3px 10px
+    &:last-child
+      color: #CCC
+      padding: 10px 3px 20px
+      &:hover
+        color: $ORANGE
+.post-actions a.approved
+  color: $BLACK
+  cursor: default
+  pointer-events: none
+
+.post-main
+  line-height: 1.2
+  margin-right: 20px
+  padding: 20px 25px
+
+.post-content
+  display: inline
+
+.post-hashtags
+  display: inline
+  padding-left: 5px
+  a
+    display: inline-block
+
+.post-created
+  color: #999
+  font-size: emCalc(13px)
+  padding-top: 5px
+
+// PENDING
+.pending-bar
+  background: #FFFDF6
+  border-bottom: 1px solid $BEIGE
+  color: $GREY
+  font-size: emCalc(14px)
+  font-weight: 400
+  padding: 20px
+  text-align: center
+  i
+    padding-right: 8px
+
+// FORMS
+form
+  margin: 0
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"],
+input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"],
+input[type="tel"], input[type="time"], input[type="url"], textarea
+  height: emCalc(37px) + 0.4em
+  font-size: emCalc(16px)
+  padding: 0.70em
+
+.form-actions
+  padding-top: 1em
+
+// WELCOME
+.welcome-header
+
+.welcome-logo
+  font-family: "aw-conqueror-carved-two"
+  font-size: emCalc(44px)
+  font-weight: 100
+  padding: 25px 0
+  text-align: center
+
+.tagline
+  background: $BEIGE
+  border-radius: 3px 3px 0 0
+  color: $NAVY
+  font-size: emCalc(17px)
+  font-weight: 500
+  line-height: 1.2
+  padding: 25px 50px
+  text-align: center
+
+// NEW USER
+.new_user
+  border: 1px solid $BEIGE
+  border-radius: 0 0 3px 3px
+  padding: 30px
+
+.new_user .hint
+  color: #999
+  font-size: emCalc(14px)
+  margin: 1em 0
+  text-align: center
+  i
+    margin-right: 8px
+
+.learn-more
+  text-align: center
+  a
+    display: block
+    padding-top: 2em
+    i
+      margin-left: 8px
+    &:hover
+      color: $ORANGE-DARK
+
+.learn-more-hidden
+  border-top: 1px solid $BEIGE
+  color: $NAVY
+  display: none
+  margin-top: 2em
+  padding: 30px 1em 5px
+  text-align: left
+  span
+    background: $ORANGE
+    border-radius: 1000px
+    box-shadow: 0 2px 0 $ORANGE-DARK
+    color: #FFF
+    float: left
+    font-weight: 300
+    text-align: center
+    width: 32px
+    padding: 8px 0 6px
+  div
+    margin-left: 45px
+
+// EDIT USER
+.edit_user
+  border: 1px solid $BEIGE
+  border-radius: 3px
+  margin-top: 20px
+  padding: 30px
+
+// NEW POST
+.new_post
+  border: 1px solid $BEIGE
+  border-radius: 3px
+  margin-top: 20px
+  padding: 30px
+
+#post_content
+  resize: none
+  height: 81px
+
+.new_post .hint
+  color: #999
+  font-size: emCalc(14px)
+  margin: 1em 0
+  text-align: center
+  i
+    margin-right: 8px
+
+// FOOTER
+.footer
+  a
+    color: #999
+    display: inline-block
+    font-size: emCalc(12px)
+    padding: 10px
+    i.icon-signout
+      padding-right: 6px
+
+// RESPONSIVE
+// Used to alter styles for screens at least 768px wide. This is where the grid changes.
+@media only screen and (max-width: 768px)
+  .column, .columns
+    padding: 0
+
+  // NAVIGATION
+  .navigation
+    ul
+      li:first-child
+        a
+          border-radius: 0
+      li:last-child
+        a
+          border-radius: 0
+
+  .community-name
+    border-radius: 0
+
+  // WELCOME
+  .tagline
+    border-radius: 0
+    padding: 25px 0
+
+  // NEW USER
+  .new_user
+    border-left: 0
+    border-right: 0
+    border-radius: 0
+
+  // POST
+  .post-actions
+    a
+      &:first-child
+        padding: 20px 14px 14px
+      &:last-child
+        padding: 14px 14px 20px
+
+  .post-main
+    margin-right: 34px

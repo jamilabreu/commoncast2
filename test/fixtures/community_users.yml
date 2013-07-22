@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  community_id: 
+  user_id: 
+  moderator: false
+
+two:
+  community_id: 
+  user_id: 
+  moderator: false

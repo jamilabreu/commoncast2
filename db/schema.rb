@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130720025643) do
+ActiveRecord::Schema.define(version: 20130720170417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,49 @@ ActiveRecord::Schema.define(version: 20130720025643) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "communities", force: true do |t|
+    t.string   "name",                       null: false
+    t.string   "slug",                       null: false
+    t.string   "hashtag",                    null: false
+    t.string   "type"
+    t.boolean  "approved",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "community_posts", force: true do |t|
+    t.integer  "community_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "community_posts", ["community_id"], name: "index_community_posts_on_community_id", using: :btree
+  add_index "community_posts", ["post_id"], name: "index_community_posts_on_post_id", using: :btree
+
+  create_table "community_users", force: true do |t|
+    t.integer  "community_id"
+    t.integer  "user_id"
+    t.boolean  "moderator",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "community_users", ["community_id"], name: "index_community_users_on_community_id", using: :btree
+  add_index "community_users", ["user_id"], name: "index_community_users_on_user_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.text     "image"
+    t.text     "content",                    null: false
+    t.boolean  "approved",   default: false
+    t.boolean  "promoted",   default: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -60,6 +103,8 @@ ActiveRecord::Schema.define(version: 20130720025643) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.text     "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

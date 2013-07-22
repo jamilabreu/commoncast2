@@ -1,8 +1,18 @@
 Commoncast::Application.routes.draw do
-  devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root 'users#index'
+  devise_for :users, controllers: {registrations: 'registrations'}
+  devise_scope :user do
+    authenticated :user do
+      root 'users#index', as: :authenticated_root
+    end
+    root 'devise/registrations#new'
+  end
+  get 'communities/search' => 'communities#search'
+  get 'communities/preload' => 'communities#preload'
+  resources :users, only: [:index]
+  resources :communities, only: [:index, :show]
+  resources :posts, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

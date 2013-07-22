@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image: MyText
+  content: MyText
+  approved: false
+  promoted: false
+  user_id: 
+
+two:
+  image: MyText
+  content: MyText
+  approved: false
+  promoted: false
+  user_id: 

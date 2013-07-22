@@ -1,0 +1,12 @@
+.header.group
+  .logo
+    = link_to "C", root_path
+  ul
+    li.left class=("active" if current_page? edit_user_registration_path)
+      = link_to edit_user_registration_path do
+        i.icon-user
+        | 10
+    li.right class=("active" if current_page? new_post_path)
+      = link_to new_post_path do
+        i.icon-rss
+        | Submit

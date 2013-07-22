@@ -1,14 +1,9 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable, :lockable, :timeoutable and :omniauthable, :validatable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable
+class Post < ActiveRecord::Base
+  belongs_to :user
+  has_many :community_posts
+  has_many :communities, through: :community_posts
 
-  has_many :posts
-  has_many :community_users
-  has_many :communities, through: :community_users
-
-  validates :email, presence: true, uniqueness: true
-  validate  :number_of_communities
+  validate :number_of_communities
 
   def community_ids=(string)
     self.communities.delete_all if self.communities.present?
