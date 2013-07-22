@@ -16,12 +16,8 @@ head
   = csrf_meta_tags
 body
   - if user_signed_in?
-    .row
-      .large-7.large-centered.columns
-        = render 'layouts/header'
-        = render 'layouts/navigation'
-        == yield
-        = render 'layouts/footer'
+    == yield
+    = render 'layouts/footer'
   - else
     == yield
   = javascript_include_tag "application", "data-turbolinks-track" => true

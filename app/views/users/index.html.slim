@@ -1,7 +1,10 @@
+= render 'layouts/header'
 = render 'layouts/tabs'
-= render @posts
-- if @pending.present?
-  .pending-bar
-    i.icon-info-sign
-    | Posts below this line are up for review.
-  = render @pending
+.row
+  .large-8.large-centered.columns
+    = render @posts
+    - if @pending.present?
+      .pending-bar
+        i.icon-info-sign
+        | Posts below this line are up for review.
+      = render @pending

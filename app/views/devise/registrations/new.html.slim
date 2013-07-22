@@ -1,11 +1,14 @@
 - content_for :javascript do
   = javascript_include_tag "select2", "users/new"
+
 .row
   .large-6.large-centered.columns
     .welcome-header
       .welcome-logo COMMONCAST
       .tagline
         | broadcast links, events, and announcements to people you share interests in common with
+.row
+  .large-6.large-centered.columns
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       = f.error_notification
       .form-inputs

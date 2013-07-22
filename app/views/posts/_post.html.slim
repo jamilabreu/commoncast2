@@ -1,9 +1,12 @@
 .post.group
   .post-actions
-    = link_to root_path, class: "#{'approved' if post.approved?}" do
-      i class=(post.approved? ? "icon-check" : "icon-unchecked")
-    = link_to root_path do
-      i.icon-remove
+    ul
+      li class=("approved" if post.approved?)
+        = link_to root_path do
+          i class=(post.approved? ? "icon-check" : "icon-unchecked")
+      li
+        = link_to root_path do
+          i.icon-remove
   .post-main
     .post-content
       = post.content

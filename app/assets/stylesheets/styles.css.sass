@@ -1,11 +1,18 @@
 // PALETTE
 $BEIGE: #E6E3D7
-$BLACK: #31363E
-$GREEN: #397C47//#08AF8B
+$BEIGE-LIGHT: #F3F1E9
+$BLACK: #292D34
+$GREEN: #397C47 //#08AF8B
 $GREY: #706C75
+
 $NAVY: #464A52
-$ORANGE: #F06026//#F96A54
+$NAVY-DARK: #31363E
+$NAVY-LIGHT: #9191A1
+$ORANGE: #F06026 //#F96A54
 $ORANGE-DARK: #EE4422
+
+body
+  background: $BEIGE
 
 abbr
   border: 0
@@ -21,157 +28,84 @@ abbr
 // HEADER
 .header
   background: $NAVY
-  border-bottom: 1px solid $BLACK
+  // border-bottom: 2px solid $NAVY-DARK
   ul
+    border-left: 1px solid $NAVY-DARK
+    // border-right: 1px solid $NAVY-DARK
     list-style: none
+    width: 100%
     li
+      border-right: 1px solid $NAVY-DARK
       display: inline-block
+      line-height: 45px
+      width: 25%
       a
-        color: #9191A1
+        color: $NAVY-LIGHT
         display: block
-        padding: 10px 24px
-        i
-          padding-right: 8px
+        font-size: emCalc(18px)
+        font-weight: 100
+        text-align: center
         &:hover
           color: #FFF
-      // &:last-child
-      //   a
-      //     border-right: 1px solid #31363E
-      //     i
-      //       padding-right: 8px
+      &:first-child
+        float: left
+        a
+          font-family: "aw-conqueror-carved-two"
+          font-size: emCalc(25px)
 
 .header ul li.active a
-  background: $BLACK
+  background: $NAVY-DARK
+  &:hover
+    color: $NAVY-LIGHT
+
+.community-header
+  background: $NAVY-DARK
   color: #FFF
-
-.logo
-  a
-    // border-left: 1px solid #31363E
-    border-right: 1px solid #31363E
-    color: #9191A1
-    display: inline-block
-    float: left
-    font-family: "aw-conqueror-carved-two"
-    font-size: emCalc(25px)
-    font-weight: 100
-    padding: 10px 24px
-    &:hover
-      color: #FFF
-
-// NAVIGATION
-.navigation
-  // background: $BEIGE
-  ul
-    list-style: none
-    li
-      display: inline-block
-      width: 50%
-      a
-        background: $BEIGE
-        // border-top: 1px solid darken($BEIGE, 15%)
-        color: $GREY
-        display: block
-        font-weight: 500
-        padding: 10px 0
-        text-align: center
-        i
-          margin-right: 8px
-        &:hover
-          color: $BLACK
-      &:first-child
-        a
-          border-radius: 0 0 0 4px
-          margin-right: 1px
-          // border-right: 1px solid $GREY
-          // border-left: 1px solid $GREY
-      &:last-child
-        a
-          border-radius: 0 0 4px 0
-          // border-right: 1px solid $GREY
-
-.navigation ul li.active a
-  background: $ORANGE
-  // border-top-color: $ORANGE-DARK
-  // border-left: 1px solid #999
-  // border-right: 1px solid #999
-  color: #FFF
-
-.community-name
-  background: $BLACK
-  color: #FFF
-  padding: 10px 0
+  padding: 14px 0 15px
   text-align: center
-  i
-    margin-right: 8px
 
 // TABS
 .tabs
-  border-bottom: 1px solid $BEIGE
-  margin-top: 20px
+  background: $BEIGE-LIGHT
   ul
     list-style: none
     li
       display: inline-block
-      width: 33.3%
+      line-height: 45px
+      width: 33.33%
       a
-        border-bottom: 1px solid $BEIGE
-        color: #999
+        color: #A2A59E
         display: block
-        font-weight: 500
-        padding: 12px 0
-        position: relative
-        top: 1px
         text-align: center
         i
-          margin-right: 8px
-        &:hover
-          color: #777
+          padding-right: 8px
+      &:not(.active)
+        a
+          &:hover
+            color: $GREY
+      &:first-child a
+        border-left: 1px solid $BEIGE
+      &:last-child a
+        border-right: 1px solid $BEIGE
 
 .tabs ul li.active a
-  border-color: $ORANGE
-  border: 1px solid $BEIGE
-  border-bottom-color: #FFF
-  border-radius: 4px 4px 0 0
-  color: $ORANGE
-  &:hover
-    color: $ORANGE
+  background: #FFF
+  color: $GREY
 
 // POST
 .post
+  background: #FFF
   border-bottom: 1px solid $BEIGE
-  // border-left: 1px solid $BEIGE
-  // border-right: 1px solid $BEIGE
-
-.post-actions
-  float: right
-  a
-    display: block
-    font-size: emCalc(17px)
-    padding: 20px 15px
-    &:first-child
-      border-bottom: 1px solid $BEIGE
-      padding-bottom: 10px
-    &:last-child
-      color: #CCC
-      padding-top: 10px
-      &:hover
-        color: $ORANGE
-.post-actions a.approved
-  color: $BLACK
-  cursor: default
-  pointer-events: none
+  position: relative
 
 .post-main
   line-height: 1.2
-  margin-right: 36px
-  padding: 20px 25px
+  margin-left: 50px
+  padding: 20px 30px
 
 .post-content
-  display: inline
 
 .post-hashtags
-  display: inline
-  padding-left: 5px
   a
     display: inline-block
 
@@ -179,6 +113,43 @@ abbr
   color: #999
   font-size: emCalc(13px)
   padding-top: 5px
+
+.post-actions
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 50px
+  ul
+    list-style: none
+    height: 100%
+    li
+      height: 50%
+      a:before
+        content: ''
+        display: inline-block
+        height: 100%
+        vertical-align: middle
+      a
+        display: inline-block
+        text-align: center
+        vertical-align: middle
+        height: 100%
+        width: 100%
+        i.icon-check, i.icon-unchecked
+          position: relative
+          top: 2px
+        i.icon-unchecked
+          right: 1px
+        i.icon-remove
+          color: $BEIGE
+        &:hover
+          i.icon-remove
+            color: $ORANGE
+      &:first-child
+        border-bottom: 1px solid $BEIGE
+
+.post-actions ul li.approved a
+  color: $GREY
 
 // PENDING
 .pending-bar
@@ -210,29 +181,40 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
 
 // WELCOME
 .welcome-header
+  color: $NAVY
+  text-align: center
 
 .welcome-logo
+  background: #FFF
   font-family: "aw-conqueror-carved-two"
   font-size: emCalc(44px)
   font-weight: 100
-  padding: 25px 0
-  text-align: center
+  padding: 15px
 
 .tagline
-  background: $BEIGE
-  border-radius: 3px 3px 0 0
-  color: $NAVY
+  background: $BEIGE-LIGHT
   font-size: emCalc(17px)
-  font-weight: 500
+  font-weight: 600
   line-height: 1.2
-  padding: 25px 50px
-  text-align: center
+  padding: 15px 50px
+
+
+// .tagline
+//   background: $BEIGE-LIGHT
+//   border-radius: 3px 3px 0 0
+//   color: $NAVY
+//   font-size: emCalc(17px)
+//   font-weight: 500
+//   line-height: 1.2
+//   padding: 25px 50px
+//   text-align: center
 
 // NEW USER
 .new_user
-  border: 1px solid $BEIGE
-  border-radius: 0 0 3px 3px
+  // border: 1px solid $BEIGE
+  // border-radius: 0 0 3px 3px
   padding: 30px
+  background: #FFF
 
 .new_user .hint
   color: #999
