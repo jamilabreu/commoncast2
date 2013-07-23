@@ -11,8 +11,8 @@ jQuery ->
     formatResult: (community) ->
       name = community.hashtag
       if community.type
-        "<div class='select2-community-type'>" + community.type + "</div>" + "<div class='select2-community-name'>" + name + "</div>"
+         "<div class='select2-community-name'>" + name + "</div>" + "<div class='select2-community-type'>" + community.type + "</div>"
       else
-        name
+        "<div class='select2-community-name'>" + name + "</div>" + "<div class='select2-community-type'>Custom</div>"
     formatSelection: (community) ->
       community.hashtag

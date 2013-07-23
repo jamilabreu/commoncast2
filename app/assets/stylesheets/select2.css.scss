@@ -148,7 +148,7 @@ $GREEN: #08AF8B;
     top: 100%;
 
     background: #fff;
-    color: #FFF;
+    // color: #FFF;
     border: 1px solid #aaa;
     border-top: 0;
 
@@ -347,6 +347,7 @@ $GREEN: #08AF8B;
     list-style: none;
     display: list-item;
     background-image: none;
+    color: $GREEN;
 }
 
 .select2-results li.select2-result-with-children > .select2-result-label {
@@ -356,7 +357,7 @@ $GREEN: #08AF8B;
 .select2-results .select2-result-label {
     // padding: 3px 7px 4px;
     padding: 5px 15px 6px;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #E6E6E6;
     // padding: 0;
     margin: 0;
     cursor: pointer;
@@ -378,13 +379,11 @@ $GREEN: #08AF8B;
 }
 
 .select2-community-name {
-    color: $GREEN;
+    font-size: emCalc(18px)
 }
 
 .select2-community-type {
     color: #999;
-    display: inline-block;
-    float: right;
     font-size: emCalc(14px);
     padding-top: 2px;
 }
@@ -394,7 +393,7 @@ $GREEN: #08AF8B;
 }
 
 .select2-results .select2-highlighted .select2-community-name {
-    color: #fff;
+    color: #FFF;
 }
 
 .select2-results .select2-highlighted .select2-community-type {

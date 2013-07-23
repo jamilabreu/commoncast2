@@ -1,18 +1,29 @@
 - content_for :javascript do
   = javascript_include_tag "select2", "users/new"
 
-.welcome-login
+.welcome-header
   .row
     .large-7.large-centered.columns
-      = link_to root_path do
-        i.icon-signin
-        | Login
-.row
-  .large-7.large-centered.columns
-    .welcome-header
       .welcome-logo COMMONCAST
+.welcome-tagline
+  .row
+    .large-7.large-centered.columns
       .tagline
         | broadcast links, events, and announcements to people you share interests in common with
+.tabs.welcome-tabs
+  .row
+    .large-7.large-centered.columns
+      ul
+        li class=("active")
+          = link_to new_user_registration_path do
+            i.icon-asterisk
+            | Sign Up
+        li
+          = link_to new_user_session_path do
+            i.icon-signin
+            | Login
+.row
+  .large-7.large-centered.columns
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       = f.error_notification
       .form-inputs
@@ -26,8 +37,6 @@
       .form-actions
         = f.button :submit, "SIGN UP", class: "large round button expand"
         .learn-more
-          .login
-            = link_to "Login", root_path
           | How It Works
           i.icon-caret-down
           .learn-more-steps
