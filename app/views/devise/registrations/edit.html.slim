@@ -2,12 +2,14 @@
   = javascript_include_tag "select2", "users/edit"
 
 = render 'layouts/header'
+= render 'layouts/tabs'
 .row
   .large-8.large-centered.columns
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
       = f.error_notification
       .form-inputs
         = f.input :email, :required => true, :autofocus => true
+        label class="required control-label" for="user_communities" Hashtags
         = f.association :communities, as: :hidden, input_html: {value: "", "data-placeholder" => "Hashtags"}
         BR
         = f.input :current_password, label: "Old Password", :hint => "we need your current password to confirm your changes", :required => true

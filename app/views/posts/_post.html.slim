@@ -9,10 +9,14 @@
           i.icon-remove
   .post-main
     .post-content
-      = post.content
+      = auto_link(post.content, html: { target: "_blank" })
     .post-hashtags
       = post.communities.map { |community| link_to community.hashtag, community }.join(" ").html_safe
-    - if params[:recent]
+      .post-comments
+        = link_to root_path do
+          i.icon-comments-alt
+          | 10
+    - if params[:recent] || params[:rewind]
       .post-created
         = time_ago_in_words(post.created_at)
         / abbr class="timeago" title=(post.created_at.iso8601)

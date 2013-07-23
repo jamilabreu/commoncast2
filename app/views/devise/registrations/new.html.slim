@@ -1,14 +1,18 @@
 - content_for :javascript do
   = javascript_include_tag "select2", "users/new"
 
+.welcome-login
+  .row
+    .large-7.large-centered.columns
+      = link_to root_path do
+        i.icon-signin
+        | Login
 .row
-  .large-6.large-centered.columns
+  .large-7.large-centered.columns
     .welcome-header
       .welcome-logo COMMONCAST
       .tagline
         | broadcast links, events, and announcements to people you share interests in common with
-.row
-  .large-6.large-centered.columns
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       = f.error_notification
       .form-inputs
@@ -16,17 +20,16 @@
         = f.association :communities, as: :hidden, input_html: {value: "", "data-placeholder" => "Hashtags"}
         .hint
           i.icon-info-sign
-          | Hashtags represent interests and communities you're part of.
-          BR
-          | Example:
+          | Hashtags represent interests and communities you're part of, like:
           BR
           | #williamsburg #brooklyn #new-york #yale #alumni #lgbt #hacker #ruby-on-rails #startup #entreprenuer #jewish #vegan #p90x
       .form-actions
         = f.button :submit, "SIGN UP", class: "large round button expand"
         .learn-more
-          = link_to "#" do
-            | How It Works
-            i.icon-caret-down
+          .login
+            = link_to "Login", root_path
+          | How It Works
+          i.icon-caret-down
           .learn-more-steps
             span 1
             div Submit a link, event, or announcement - attaching at least two hashtags to it.

@@ -28,7 +28,8 @@ abbr
 // HEADER
 .header
   background: $NAVY
-  border-bottom: 2px solid $NAVY-DARK
+  // border-top: 1px solid $NAVY-DARK
+  border-bottom: 1px solid $NAVY-DARK
   ul
     border-right: 1px solid $NAVY-DARK
     list-style: none
@@ -36,14 +37,19 @@ abbr
     li
       border-left: 1px solid $NAVY-DARK
       display: inline-block
-      line-height: 45px
+      line-height: 49px
       width: 25%
       a
         color: $NAVY-LIGHT
         display: block
-        font-size: emCalc(18px)
-        font-weight: 100
+        // font-size: emCalc(18px)
         text-align: center
+        i
+          font-size: emCalc(18px)
+          font-weight: 100
+          padding-right: 8px
+          position: relative
+          top: 1px
         &:hover
           color: #FFF
       &:first-child
@@ -67,10 +73,12 @@ abbr
 .tabs
   background: $BEIGE-LIGHT
   ul
+    border-left: 1px solid $BEIGE
+    border-right: 1px solid $BEIGE
     list-style: none
     li
       display: inline-block
-      line-height: 45px
+      line-height: 50px
       width: 33.33%
       a
         color: #A2A59E
@@ -82,9 +90,8 @@ abbr
         a
           &:hover
             color: $GREY
-      &:first-child a
+      &:nth-child(2)
         border-left: 1px solid $BEIGE
-      &:last-child a
         border-right: 1px solid $BEIGE
 
 .tabs ul li.active a
@@ -95,18 +102,42 @@ abbr
 .post
   background: #FFF
   border-bottom: 1px solid $BEIGE
+  border-left: 1px solid $BEIGE
+  border-right: 1px solid $BEIGE
   position: relative
 
 .post-main
-  line-height: 1.2
+  line-height: 1.3
   margin-left: 50px
   padding: 20px 30px
 
+.post-empty
+  line-height: 1.2
+  padding: 20px 30px
+  i
+    color: #669933
+    float: left
+
+.post-empty-main
+  margin-left: 50px
+
 .post-content
+
+.post-comments
+  border-left: 1px solid $BEIGE
+  display: inline-block
+  font-size: emCalc(14px)
+  margin-left: 8px
+  padding-left: 8px
+  i
+    padding-right: 3px
 
 .post-hashtags
   a
+    color: #999
     display: inline-block
+    &:hover
+      color: $ORANGE
 
 .post-created
   color: #999
@@ -154,6 +185,8 @@ abbr
 .pending-bar
   background: #FFFDF6
   border-bottom: 1px solid $BEIGE
+  border-left: 1px solid $BEIGE
+  border-right: 1px solid $BEIGE
   color: $GREY
   font-size: emCalc(14px)
   font-weight: 400
@@ -179,6 +212,17 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   padding-top: 1em
 
 // WELCOME
+.welcome-login
+  background: $NAVY
+  text-align: right
+  a
+    color: $NAVY-LIGHT
+    display: inline-block
+    font-size: emCalc(14px)
+    padding: 10px
+    i
+      padding-right: 8px
+
 .welcome-header
   color: $NAVY
   text-align: center
@@ -188,31 +232,19 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   font-family: "aw-conqueror-carved-two"
   font-size: emCalc(44px)
   font-weight: 100
-  padding: 15px
+  padding: 20px
 
 .tagline
   background: $BEIGE-LIGHT
   font-size: emCalc(17px)
   font-weight: 600
   line-height: 1.2
-  padding: 15px 50px
+  padding: 20px 60px
 
-
-// .tagline
-//   background: $BEIGE-LIGHT
-//   border-radius: 3px 3px 0 0
-//   color: $NAVY
-//   font-size: emCalc(17px)
-//   font-weight: 500
-//   line-height: 1.2
-//   padding: 25px 50px
-//   text-align: center
 
 // NEW USER
 .new_user
-  // border: 1px solid $BEIGE
-  // border-radius: 0 0 3px 3px
-  padding: 30px
+  padding: 30px 60px
   background: #FFF
 
 .new_user .hint
@@ -225,13 +257,10 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
 
 .learn-more
   text-align: center
-  a
-    display: block
-    padding-top: 2em
-    i
-      margin-left: 8px
-    &:hover
-      color: $ORANGE-DARK
+  color: $GREY
+  padding-top: 2em
+  i
+    margin-left: 8px
 
 .learn-more-steps
   border-top: 1px solid $BEIGE
@@ -254,17 +283,19 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
 
 // EDIT USER
 .edit_user
+  background: #FFF
   border: 1px solid $BEIGE
-  border-radius: 3px
-  margin-top: 20px
-  padding: 30px
+  border-top: 0
+  border-radius: 0 0 4px 4px
+  padding: 40px 50px
 
 // NEW POST
 .new_post
+  background: #FFF
   border: 1px solid $BEIGE
-  border-radius: 3px
-  margin-top: 20px
-  padding: 30px
+  border-top: 0
+  border-radius: 0 0 4px 4px
+  padding: 40px 50px
 
 #post_content
   resize: none
