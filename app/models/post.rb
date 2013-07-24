@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   has_many :community_posts
   has_many :communities, through: :community_posts
 
+  validates :content, presence: true
   validate :number_of_communities
 
   def community_ids=(string)
@@ -16,6 +17,7 @@ class Post < ActiveRecord::Base
   end
 
   def number_of_communities
-    errors.add(:communities, "add at least 1 hashtag") if self.communities.length < 1
+    errors.add(:communities, "please select at least 2") if self.communities.length < 2
+    errors.add(:communities, "please select a maximum of 6") if self.communities.length > 6
   end
 end

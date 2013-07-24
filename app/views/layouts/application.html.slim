@@ -22,4 +22,4 @@ body
     == yield
   = javascript_include_tag "application", "data-turbolinks-track" => true
   == yield :javascript
-  / = debug(params) if Rails.env.development?
+  = debug(params) if Rails.env.development?

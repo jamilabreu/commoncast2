@@ -4,8 +4,9 @@ class CreateCommunities < ActiveRecord::Migration
       t.string :name, null: false
       t.string :slug, null: false, unique: true
       t.string :hashtag, null: false
-      t.string :type
       t.boolean :approved, default: false
+      t.text :description
+      t.string :type
 
       t.timestamps
     end

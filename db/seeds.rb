@@ -4,12 +4,18 @@ puts "CREATE COMMUNITIES"
   Community.create(name: name, slug: slug, hashtag: "##{slug}", type: "Profession")
 end
 
-%W[ #{'New York'} #{'Los Angeles'} Chicago Houston Philadelphia Phoenix #{'San Antonio'}
-  #{'San Diego'} Dallas #{'San Jose'} Austin Jacksonville Indianapolis #{'San Francisco'}
-  Columbus Miami ].each do |name|
-  slug = name.downcase.parameterize
-  Community.create(name: name, slug: slug, hashtag: "##{slug}", type: "City")
-end
+Community.create(name: "New York", slug: "new-york", hashtag: "#new-york", description:"New York, New York, United States", type: "City")
+Community.create(name: "Los Angeles", slug: "los-angeles", hashtag: "#los-angeles", description:"Los Angeles, California, United States", type: "City")
+Community.create(name: "Chicago", slug: "chicago", hashtag: "#chicago", description:"Chicago, Illinois, United States", type: "City")
+Community.create(name: "Houston", slug: "houston", hashtag: "#houston", description:"Houston, Texas, United States", type: "City")
+Community.create(name: "Philadelphia", slug: "philadelphia", hashtag: "#philadelphia", description:"Philadelphia, Pennsylvania, United States", type: "City")
+
+# %W[ #{'New York'} #{'Los Angeles'} Chicago Houston Philadelphia Phoenix #{'San Antonio'}
+#   #{'San Diego'} Dallas #{'San Jose'} Austin Jacksonville Indianapolis #{'San Francisco'}
+#   Columbus Miami ].each do |name|
+#   slug = name.downcase.parameterize
+#   Community.create(name: name, slug: slug, hashtag: "##{slug}", type: "City")
+# end
 
 puts "CREATE USERS"
 20.times do

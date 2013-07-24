@@ -5,7 +5,8 @@
 .row
   .large-8.large-centered.columns
     = simple_form_for @post do |f|
+      = f.error_notification
       = f.input :content, label: false, placeholder: "Message", :input_html => { "maxlength" => "140", "rows" => "4" }
-      = f.association :communities, as: :hidden, input_html: {value: "", "data-placeholder" => "Hashtags"}
+      = f.association :communities, as: :hidden, input_html: { value: "", data: { placeholder: "Hashtags", communities: @communities } }
       BR
       = f.button :submit, "SUBMIT POST", class: "large round button expand"

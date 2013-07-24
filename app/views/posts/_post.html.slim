@@ -11,7 +11,7 @@
     .post-content
       = auto_link(post.content, html: { target: "_blank" })
     .post-hashtags
-      = post.communities.map { |community| link_to community.hashtag, community }.join(" ").html_safe
+      = post.communities.map { |community| link_to community.hashtag, community }.join("&nbsp;&nbsp;").html_safe
       .post-comments
         = link_to root_path do
           i.icon-comments-alt
@@ -19,15 +19,3 @@
     - if params[:recent] || params[:rewind]
       .post-created
         = time_ago_in_words(post.created_at)
-        / abbr class="timeago" title=(post.created_at.iso8601)
-        / =
-    / .post-user
-    /   = link_to post.user.name, root_path
-    / .post-vote
-      / - post.communities.each do |community|
-      /   = link_to community.hashtag, community
-
-    /   = link_to root_path, class: "#{'approved' if post.approved?}" do
-    /     i.icon-ok
-    /   = link_to root_path do
-    /     i.icon-remove

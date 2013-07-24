@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
   end
 
   def number_of_communities
-    errors.add(:communities, "add at least 1 hashtag") if self.communities.length < 1
+    errors.add(:communities, "please select at least 2") if self.communities.length < 2
   end
 end
