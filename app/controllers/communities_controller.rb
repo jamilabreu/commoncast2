@@ -6,16 +6,30 @@ class CommunitiesController < ApplicationController
   def search
     query = params[:query].try(:delete, "#")
     results = query.present? ? Community.where("slug ILIKE '%#{query}%'") : Community.all.order(:slug)
-    @communities = results.blank? ? [{id: query, hashtag: "##{query.parameterize}", type: nil}] : results
+    @communities = results.blank? ? [{id: query, hashtag: "##{query.parameterize}", description: nil, type: nil}] : results
 
-    respond_with @communities, only: [:id, :hashtag, :type], callback: params[:callback]
+    respond_with @communities, only: [:id, :hashtag, :description, :type], callback: params[:callback]
   end
 
   # GET /communities/preload.json
   def preload
     @communities = current_user.communities
 
-    respond_with @communities, only: [:id, :hashtag, :type], callback: params[:callback]
+    respond_with @communities, only: [:id, :hashtag, :description, :type], callback: params[:callback]
+  end
+
+  # GET /communities/remember.json
+  def remember
+    @communities = []
+    params[:query].split(",").each do |id|
+      community = Community.find_by_id(id)
+      if community.present?
+        @communities << {id: community.id, hashtag: community.hashtag, description: community.description, type: community.type}
+      else
+        @communities << {id: id, hashtag: "##{id.parameterize}", description: nil, type: nil}
+      end
+    end
+    respond_with @communities, only: [:id, :hashtag, :description, :type], callback: params[:callback]
   end
 
   def index

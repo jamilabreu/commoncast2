@@ -1,5 +1,15 @@
-- if current_page? edit_user_registration_path
-  .tabs.tabs-settings
+- if current_page? communities_path
+  - content_for :javascript do
+    = javascript_include_tag "select2", "communities/index"
+  .tabs.tabs-communities
+    .row
+      .large-8.large-centered.columns
+        ul
+          li class=("active")
+            = hidden_field_tag 'search', nil, {"data-placeholder" => "Search Hashtags"}
+
+- elsif current_page? edit_user_registration_path
+  .tabs
     .row
       .large-8.large-centered.columns
         ul

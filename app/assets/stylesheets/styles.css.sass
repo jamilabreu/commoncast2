@@ -55,7 +55,7 @@ abbr
       &:first-child
         float: left
         a
-          font-family: "aw-conqueror-carved-two"
+          font-family: "aw-conqueror-carved-one"
           font-size: emCalc(25px)
 
 .header ul li.active a
@@ -97,6 +97,28 @@ abbr
 .tabs ul li.active a
   background: #FFF
   color: $GREY
+
+
+// COMMUNITIES
+.tabs-communities
+  ul
+    li
+      width: 100%
+
+#s2id_search .select2-search-choice
+  display: none
+
+#s2id_search .select2-choices
+  border: 0
+
+#s2id_search input
+  height: 50px
+  padding: 0.7em 1em
+
+.communities
+  background: #FFF
+  border: 1px solid $BEIGE
+  border-radius: 0 0 4px 4px
 
 // POST
 .post
@@ -211,6 +233,25 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
 .form-actions
   padding-top: 1em
 
+.alert-box.alert
+  background: transparent
+  border: 0
+  color: #08AF8B
+  padding: 0
+
+.error input, .error textarea, .error select
+  border-color: #08AF8B
+  background: transparent
+
+.error small
+  background: #08AF8B
+  color: #FFF
+  display: block
+  font-size: emCalc(15px)
+  font-weight: 500
+  margin-bottom: 1em
+  padding: 8px 10px
+
 // WELCOME
 .welcome-header
   background: $NAVY-DARK
@@ -218,12 +259,14 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
 .welcome-logo
   border-left: 1px solid $BLACK
   border-right: 1px solid $BLACK
-  color: $NAVY
-  font-family: "aw-conqueror-carved-one"
-  font-size: emCalc(32px)
-  font-weight: 100
-  padding: 10px 0
   text-align: center
+  a
+    color: $NAVY
+    display: inline-block
+    font-family: "aw-conqueror-carved-one"
+    font-size: emCalc(32px)
+    font-weight: 100
+    padding: 10px 0
 
 .welcome-tagline
   background: $NAVY
@@ -335,3 +378,8 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   // WELCOME
   .tagline
     padding: 17px 0
+
+  // NEW USER
+  .new_user
+    border-radius: 0
+    padding: 40px 20px

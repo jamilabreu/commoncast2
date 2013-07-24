@@ -1,6 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters
 
+  def create
+    @communities = params[:user][:community_ids]
+    super
+  end
+
   def update
     @user = User.find(current_user.id)
 

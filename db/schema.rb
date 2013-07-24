@@ -50,11 +50,12 @@ ActiveRecord::Schema.define(version: 20130720170417) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "communities", force: true do |t|
-    t.string   "name",                       null: false
-    t.string   "slug",                       null: false
-    t.string   "hashtag",                    null: false
+    t.string   "name",                        null: false
+    t.string   "slug",                        null: false
+    t.string   "hashtag",                     null: false
+    t.boolean  "approved",    default: false
+    t.text     "description"
     t.string   "type"
-    t.boolean  "approved",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

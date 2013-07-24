@@ -9,15 +9,20 @@ jQuery ->
       results: (data) ->
         results: data
     formatResult: (community) ->
-      name = community.hashtag
-      if community.type
-        "<div class='select2-community-name'>" + name + "</div>" + "<div class='select2-community-type'>" + community.type + "</div>"
+      name = "<div class='select2-community-name'>" + community.hashtag + "</div>"
+      if community.type && community.description
+        name += "<div class='select2-community-type'>" + community.type + " - " + community.description + "</div>"
+      else if community.type
+        name += "<div class='select2-community-type'>" + community.type + "</div>"
       else
-        "<div class='select2-community-name'>" + name + "</div>" + "<div class='select2-community-type'>Custom</div>"
+        name += "<div class='select2-community-type'>Custom</div>"
     formatSelection: (community) ->
       community.hashtag
 
-  # $('.learn-more a').on 'click', (e) ->
-  #   e.preventDefault()
-  #   $('.learn-more a i').toggleClass('icon-caret-right icon-caret-down')
-  #   $('.learn-more-hidden').toggle()
+  if $('#user_community_ids').data("communities")
+    $.ajax
+      url: "/communities/remember.json?query=" + $('#user_community_ids').data("communities")
+      dataType: 'jsonp'
+      success: (response) ->
+        if response.length
+          $('#user_community_ids').select2('data', response)

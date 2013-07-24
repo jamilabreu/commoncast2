@@ -10,6 +10,7 @@ Commoncast::Application.routes.draw do
   end
   get 'communities/search' => 'communities#search'
   get 'communities/preload' => 'communities#preload'
+  get 'communities/remember' => 'communities#remember'
   resources :users, only: [:index]
   resources :communities, only: [:index, :show]
   resources :posts, only: [:new, :create]

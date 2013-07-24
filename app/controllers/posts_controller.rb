@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @communities = params[:post][:community_ids]
 
     respond_to do |format|
       if @post.save
