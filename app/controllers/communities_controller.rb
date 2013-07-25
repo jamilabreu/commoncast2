@@ -24,7 +24,7 @@ class CommunitiesController < ApplicationController
     params[:query].split(",").each do |id|
       community = Community.find_by_id(id)
       if community.present?
-        @communities << {id: community.id, hashtag: community.hashtag, description: community.description, type: community.type}
+        @communities << {id: community.id, hashtag: community.hashtag, description: community.try(:description), type: community.try(:type)} #TODO, approved vs custom
       else
         @communities << {id: id, hashtag: "##{id.parameterize}", description: nil, type: nil}
       end

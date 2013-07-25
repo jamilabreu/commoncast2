@@ -24,6 +24,10 @@ gem 'inherited_resources',  github: 'josevalim/inherited_resources'
 gem 'formtastic',           github: 'justinfrench/formtastic'
 gem 'font-awesome-rails',   github: 'bokmann/font-awesome-rails'
 
+# NEWSLETTER
+gem 'clockwork'
+gem 'sidekiq'
+
 group :production do
   gem 'rails_12factor'
 end

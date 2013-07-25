@@ -18,9 +18,9 @@ Community.create(name: "Philadelphia", slug: "philadelphia", hashtag: "#philadel
 # end
 
 puts "CREATE USERS"
-20.times do
+5.times do
   user = User.create(
-    email: Faker::Internet.email,
+    email: "abreu.jamil@gmail.com",
     password: Devise.friendly_token.first(8),
     name: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     image: "http://graph.facebook.com/#{rand(300000..302715)}/picture?type=normal",

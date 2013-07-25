@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div><%= @user.communities.map(&:name) %></div>
+    <div><%= @posts.length %></div>
+    <% @posts.each do |post| %>
+      <div>
+        <div>
+          <%= post.content %>
+        </div>
+        <div>
+          <%= post.communities.map { |community| link_to community.hashtag, community_url(community) }.join("&nbsp;&nbsp;").html_safe %>
+        </div>
+      </div>
+      <BR/>
+    <% end %>
+  </body>
+</html>

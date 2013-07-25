@@ -11,6 +11,10 @@ $NAVY-LIGHT: #9191A1
 $ORANGE: #F06026 //#F96A54
 $ORANGE-DARK: #EE4422
 
+html
+  overflow: -moz-scrollbars-vertical
+  overflow-y: scroll
+
 body
   background: $BEIGE
 
@@ -28,38 +32,62 @@ abbr
 // HEADER
 .header
   background: $NAVY
-  // border-top: 1px solid $NAVY-DARK
-  border-bottom: 1px solid $NAVY-DARK
+  background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
+  // border-bottom: 1px solid $BLACK
+  box-shadow: 0 1px 0 rgba(41,45,52, 0.5) inset, 0 -1px 0 rgba(41,45,52, 0.2) inset, 0px 1px 1px rgba(0,0,0,.2)
+  position: relative
+  z-index: 10
   ul
+    border-left: 1px solid $NAVY-DARK
     border-right: 1px solid $NAVY-DARK
     list-style: none
     width: 100%
     li
-      border-left: 1px solid $NAVY-DARK
       display: inline-block
-      line-height: 49px
-      width: 25%
+      height: 100%
+      a:before
+        content: ''
+        display: inline-block
+        height: 100%
+        vertical-align: middle
       a
         color: $NAVY-LIGHT
-        display: block
-        // font-size: emCalc(18px)
+        display: inline-block
+        font-weight: 100
+        height: 44px
         text-align: center
-        i
-          font-size: emCalc(18px)
-          font-weight: 100
-          padding-right: 8px
-          position: relative
-          top: 1px
+        text-shadow: 0 1px 0 $BLACK
+        vertical-align: middle
+        width: 100%
+        // i
+        //   position: relative
+        //   top: 1px
         &:hover
           color: #FFF
       &:first-child
-        float: left
+        border-right: 1px solid $NAVY-DARK
+        width: 11.15%
         a
           font-family: "aw-conqueror-carved-one"
           font-size: emCalc(25px)
+      &:nth-child(2)
+        border-right: 1px solid $NAVY-DARK
+        width: 11.15%
+      &:nth-child(3)
+        border-right: 1px solid $NAVY-DARK
+        width: 11.15%
+      &:nth-child(4)
+        border-left: 1px solid $NAVY-DARK
+        margin-left: 33.1%
+        width: 33.45%
+        a
+          font-weight: 600
+        i
+          font-weight: 100
+          padding-right: 8px
 
 .header ul li.active a
-  background: $NAVY-DARK
+  background: $NAVY-DARK url("noise.png")
   &:hover
     color: $NAVY-LIGHT
 
@@ -84,6 +112,7 @@ abbr
         color: #A2A59E
         display: block
         text-align: center
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8)
         i
           padding-right: 8px
       &:not(.active)
@@ -383,3 +412,18 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   .new_user
     border-radius: 0
     padding: 40px 20px
+
+  // HEADER
+  .header
+    ul
+      li
+        &:first-child
+          width: 33.33%
+        &:nth-child(2)
+          width: 16.665%
+        &:nth-child(3)
+          width: 16.665%
+        &:nth-child(4)
+          border-left: 0
+          margin-left: 0
+          width: 33.33%
