@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20130720170417) do
   end
 
   add_index "community_users", ["community_id"], name: "index_community_users_on_community_id", using: :btree
+  add_index "community_users", ["user_id"], name: "index_community_users_on_user_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.text     "image"
@@ -89,6 +90,8 @@ ActiveRecord::Schema.define(version: 20130720170417) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -107,6 +110,7 @@ ActiveRecord::Schema.define(version: 20130720170417) do
     t.datetime "updated_at"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
