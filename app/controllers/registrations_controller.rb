@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :configure_permitted_parameters
+  before_action :configure_permitted_parameters
+  skip_before_action :authenticate_user, only: [:new, :create]
 
   # POST /resource
   def create

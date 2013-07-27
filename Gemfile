@@ -28,6 +28,9 @@ gem 'font-awesome-rails',   github: 'bokmann/font-awesome-rails'
 gem 'clockwork'
 gem 'sidekiq'
 
+# VOTING
+gem 'thumbs_up'
+
 group :production do
   gem 'rails_12factor'
 end

@@ -7,7 +7,7 @@
       - if @pending.present?
         .pending-bar
           i.icon-info-sign
-          | Posts below this line are up for review.
+          | Posts below this line are not yet approved for the weekly newsletter.
         = render @pending
       .pending-bar
         | commoncast gets better as more people use it, so #{link_to "tweet", root_path} or #{link_to "facebook", root_path} about it!

@@ -16,6 +16,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote_on
+    @post = Post.find(params[:id])
+    current_user.vote(@post, { direction: params[:direction], exclusive: true })
+  end
+
   private
     def post_params
       params[:post].permit(:content, :community_ids)

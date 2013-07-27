@@ -1,0 +1,11 @@
+<% if params[:direction] == "up" %>
+  $('#<%= @post.id %> .post-actions ul').addClass("voted_for");
+  $('#<%= @post.id %> .post-actions ul').removeClass("voted_against");
+  $('#<%= @post.id %> .post-actions ul li:first-child a i').toggleClass("icon-check icon-unchecked");
+<% else %>
+  $('#<%= @post.id %> .post-actions ul').addClass("voted_against");
+  $('#<%= @post.id %> .post-actions ul').removeClass("voted_for");
+  if ( $('#<%= @post.id %> .post-actions ul li:first-child i.icon-check').length ) {
+    $('#<%= @post.id %> .post-actions ul li:first-child a i').toggleClass("icon-check icon-unchecked");
+  }
+<% end %>

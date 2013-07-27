@@ -219,7 +219,10 @@ abbr
         i.icon-check, i.icon-unchecked
           position: relative
           top: 2px
+        i.icon-check
+          color: $ORANGE
         i.icon-unchecked
+          color: #999
           right: 1px
         i.icon-remove
           color: $BEIGE
@@ -229,8 +232,36 @@ abbr
       &:first-child
         border-bottom: 1px solid $BEIGE
 
-.post-actions ul li.approved a
-  color: $GREY
+.post-actions ul.voted_for li
+  &:first-child a
+    cursor: default
+    pointer-events: none
+  &:last-child a:hover i
+    color: #A2A59E
+
+.post-actions ul.voted_against li
+  &:first-child a:hover i
+    color: #A2A59E
+  &:last-child a
+    cursor: default
+    pointer-events: none
+    i
+      color: $ORANGE
+
+// .post-actions ul li.approved a,
+// .post-actions ul li.voted_for a,
+// .post-actions ul.voted_against li:last-child a
+//   cursor: default
+//   pointer-events: none
+
+// .post-actions ul li.approved a
+//   color: $GREY
+
+// .post-actions ul.voted_against li
+//   &:first-child a i
+//     color: #A2A59E
+//   &:last-child a i
+//     color: $ORANGE
 
 // PENDING
 .pending-bar

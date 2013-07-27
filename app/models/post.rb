@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  acts_as_voteable
   belongs_to :user
   has_many :community_posts
   has_many :communities, through: :community_posts

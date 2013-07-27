@@ -13,14 +13,14 @@
     .row
       .large-8.large-centered.columns
         ul
-          li class=("active")
+          li class=("active" if current_page? edit_user_registration_path)
+            = link_to url_for(only_path: false, overwrite_params: {}) do
+              i.icon-envelope-alt
+              | Inbox
+          li class=("active" if params[:prof] || params[:rewind])
             = link_to url_for(only_path: false, overwrite_params: {}, recent: true) do
               i.icon-reorder
               | Profile
-          li class=("active" if params[:recent] || params[:rewind])
-            = link_to url_for(only_path: false, overwrite_params: {}) do
-              i.icon-lock
-              | Password
           li class=("active" if params[:rewind])
             = link_to url_for(only_path: false, overwrite_params: {}, rewind: true) do
               i.icon-question
