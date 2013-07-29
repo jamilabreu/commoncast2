@@ -19,6 +19,6 @@ class Post < ActiveRecord::Base
 
   def number_of_communities
     errors.add(:communities, "please select at least 2") if self.communities.length < 2
-    errors.add(:communities, "please select a maximum of 6") if self.communities.length > 6
+    errors.add(:communities, "please select a maximum of 4") if self.communities.length > 4
   end
 end

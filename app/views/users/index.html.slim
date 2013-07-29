@@ -1,7 +1,14 @@
+= render 'layouts/notice' if alert || notice
 = render 'layouts/header'
 = render 'layouts/tabs'
 .row
   .large-8.large-centered.columns
+    / .notice-box
+    /   .row
+    /     .large-8.large-centered.columns
+    /       | Would you like a tour?
+      div style="float: right"
+        | START TOUR
     - if @posts.present?
       = render @posts
       - if @pending.present?
@@ -11,12 +18,24 @@
         = render @pending
       .pending-bar
         | commoncast gets better as more people use it, so #{link_to "tweet", root_path} or #{link_to "facebook", root_path} about it!
+    - elsif @pending.present?
+      .pending-bar style="background: #FFF"
+        i.icon-info-sign
+        | At the moment, there are no approved posts for this week's newsletter.
+      .pending-bar
+        i.icon-info-sign
+        | Posts below this line are pending approval for this week's newsletter.
+      = render @pending
     - else
       .post.post-empty
         i.icon-info-sign.icon-2x
         .post-empty-main
-          | Looks like there aren't any posts tagged with two hashtags you follow.
+          - if params[:rewind]
+            | At the moment, there aren't any approved posts from previous weeks.
+          - else
+            | At the moment, there aren't any posts with two hashtags you follow.
           br
           | Try following more communities by #{link_to "adding hashtags to your profile.", edit_user_registration_path}
+
       .pending-bar
         | Commoncast gets better as more people use it, so #{link_to "tweet", root_path} or #{link_to "facebook", root_path} about it!

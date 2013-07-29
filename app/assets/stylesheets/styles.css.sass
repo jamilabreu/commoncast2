@@ -87,7 +87,7 @@ abbr
           padding-right: 8px
 
 .header ul li.active a
-  background: $NAVY-DARK url("noise.png")
+  background: rgba(255,255,255,0.1)
   &:hover
     color: $NAVY-LIGHT
 
@@ -126,7 +126,6 @@ abbr
 .tabs ul li.active a
   background: #FFF
   color: $GREY
-
 
 // COMMUNITIES
 .tabs-communities
@@ -218,12 +217,12 @@ abbr
         width: 100%
         i.icon-check, i.icon-unchecked
           position: relative
-          top: 2px
+          top: 3px
         i.icon-check
           color: $ORANGE
+          left: 1px
         i.icon-unchecked
           color: #999
-          right: 1px
         i.icon-remove
           color: $BEIGE
         &:hover

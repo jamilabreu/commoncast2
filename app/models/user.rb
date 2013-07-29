@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :community_users
   has_many :communities, through: :community_users
 
-  validates :email, presence: true, uniqueness: true
+  # validates :email, presence: true, uniqueness: true
   validate  :number_of_communities
 
   def community_ids=(string)

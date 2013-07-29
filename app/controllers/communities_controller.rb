@@ -1,5 +1,6 @@
 class CommunitiesController < ApplicationController
   before_action :set_community, only: [:show]
+  skip_before_action :authenticate_user, only: [:search, :preload, :remember]
   respond_to :html, :json
 
   # GET /communities/search.json

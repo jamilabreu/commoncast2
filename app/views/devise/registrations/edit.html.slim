@@ -11,10 +11,15 @@
         = f.input :email, :required => true, :autofocus => true
         label class="required control-label" for="user_communities" Hashtags
         = f.association :communities, as: :hidden, input_html: {value: "", "data-placeholder" => "Hashtags"}
-        BR
-        = f.input :current_password, label: "Old Password", :hint => "we need your current password to confirm your changes", :required => true
-        = f.input :password, label: "New Password", :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
-        = f.input :password_confirmation, label: "Confirm New Password", :required => false
+        br
+        - if params[:p] || params[:password]
+          = f.input :current_password, label: "Old Password", :hint => "we need your current password to confirm your changes", :required => true, input_html: { value: params[:p] }
+          = f.input :password, label: "New Password", :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
+          = f.input :password_confirmation, label: "Confirm New Password", :required => false
+        - else
+          = link_to edit_user_registration_path(password: true) do
+            i.icon-lock
+            | &nbsp;Change Password
 
       .form-actions
         = f.button :submit, "UPDATE PROFILE", class: "large round button expand"
