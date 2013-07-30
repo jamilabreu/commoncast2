@@ -7,22 +7,26 @@
   .large-8.large-centered.columns
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
       = f.error_notification
-      .form-inputs
-        = f.input :email, :required => true, :autofocus => true
-        label class="required control-label" for="user_communities" Hashtags
-        = f.association :communities, as: :hidden, input_html: {value: "", "data-placeholder" => "Hashtags"}
-        br
-        - if params[:p] || params[:password]
-          = f.input :current_password, label: "Old Password", :hint => "we need your current password to confirm your changes", :required => true, input_html: { value: params[:p] }
-          = f.input :password, label: "New Password", :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
-          = f.input :password_confirmation, label: "Confirm New Password", :required => false
-        - else
-          = link_to edit_user_registration_path(password: true) do
-            i.icon-lock
-            | &nbsp;Change Password
-
+      - if params[:p]
+        = f.input :current_password, as: :hidden, label: false, :hint => "we need your current password to confirm your changes", :required => true, input_html: { value: params[:p] }
+        = f.input :password, label: "New Password (at least 8 characters)", :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
+        = f.input :password_confirmation, label: "Confirm New Password", :required => false
+      - else
+        .form-inputs
+          = f.input :email, :required => true, :autofocus => true
+          label class="required control-label" for="user_communities" Hashtags
+          = f.association :communities, as: :hidden, input_html: {value: "", "data-placeholder" => "Hashtags"}
+          BR
+          - if params[:password] || params[:user].try(:[], :password)
+            = f.input :current_password, label: "Old Password", :hint => "we need your current password to confirm your changes", :required => true, input_html: { value: params[:user].try(:[], :current_password) }
+            = f.input :password, label: "New Password", :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false, input_html: { value: params[:user].try(:[], :password) }
+            = f.input :password_confirmation, label: "Confirm New Password", :required => false, input_html: { value: params[:user].try(:[], :current_password) }
+          - else
+            = link_to edit_user_registration_path(password: true) do
+              i.icon-lock
+              | &nbsp;Change Password
       .form-actions
-        = f.button :submit, "UPDATE PROFILE", class: "large round button expand"
+        = f.button :submit, "UPDATE #{params[:p] ? 'PASSWORD' : 'PROFILE'}", class: "large round button expand"
 
         / h3 Cancel my account
         / p

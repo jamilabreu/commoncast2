@@ -9,14 +9,15 @@
           i.icon-remove
   .post-main
     .post-content
-      = (current_user.communities & post.communities).length
+      - if post.approved?
+        i.icon-ok style="color: #669933; margin-right: 6px"
       = auto_link(post.content, html: { target: "_blank" })
     .post-hashtags
       = post.communities.map { |community| link_to community.hashtag, community }.join("&nbsp;&nbsp;").html_safe
-      / .post-comments
-      /   = link_to root_path do
-      /     i.icon-comments-alt
-      /     | 10
+      .post-comments
+        = link_to post do
+          i.icon-comments-alt
+          | 10
     - if params[:recent] || params[:rewind]
       .post-created
         = time_ago_in_words(post.created_at)

@@ -13,7 +13,7 @@ Commoncast::Application.routes.draw do
   get 'communities/remember' => 'communities#remember'
   resources :users, only: [:index]
   resources :communities, only: [:index, :show]
-  resources :posts, only: [:new, :create] do
+  resources :posts, only: [:new, :create, :show] do
     member do
       post :vote_on
     end

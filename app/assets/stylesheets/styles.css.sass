@@ -32,11 +32,12 @@ abbr
 // HEADER
 .header
   background: $NAVY
-  background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
+  // background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
+  // background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
   // border-bottom: 1px solid $BLACK
-  box-shadow: 0 1px 0 rgba(41,45,52, 0.5) inset, 0 -1px 0 rgba(41,45,52, 0.2) inset, 0px 1px 1px rgba(0,0,0,.2)
-  position: relative
-  z-index: 10
+  // box-shadow: 0 1px 0 rgba(41,45,52, 0.5) inset, 0 -1px 0 rgba(41,45,52, 0.2) inset, 0px 1px 1px rgba(0,0,0,.2)
+  // position: relative
+  // z-index: 10
   ul
     border-left: 1px solid $NAVY-DARK
     border-right: 1px solid $NAVY-DARK
@@ -54,7 +55,7 @@ abbr
         color: $NAVY-LIGHT
         display: inline-block
         font-weight: 100
-        height: 44px
+        height: 40px
         text-align: center
         text-shadow: 0 1px 0 $BLACK
         vertical-align: middle
@@ -65,41 +66,50 @@ abbr
         &:hover
           color: #FFF
       &:first-child
-        border-right: 1px solid $NAVY-DARK
+        // border-right: 1px solid $NAVY-DARK
         width: 11.15%
+        width: 10%
         a
           font-family: "aw-conqueror-carved-one"
           font-size: emCalc(25px)
       &:nth-child(2)
-        border-right: 1px solid $NAVY-DARK
+        // border-right: 1px solid $NAVY-DARK
         width: 11.15%
+        width: 10%
       &:nth-child(3)
-        border-right: 1px solid $NAVY-DARK
+        // border-right: 1px solid $NAVY-DARK
         width: 11.15%
+        width: 10%
       &:nth-child(4)
-        border-left: 1px solid $NAVY-DARK
-        margin-left: 33.1%
-        width: 33.45%
+        // border-left: 1px solid $NAVY-DARK
+        // margin-left: 33.1%
+        // width: 33.45%
+        width: 10%
         a
           font-weight: 600
         i
           font-weight: 100
-          padding-right: 8px
+          // padding-right: 8px
 
 .header ul li.active a
   background: rgba(255,255,255,0.1)
+  color: #CCC
   &:hover
-    color: $NAVY-LIGHT
+    color: #CCC
 
 .community-header
   background: $NAVY-DARK
   color: #FFF
-  padding: 14px 0 15px
   text-align: center
+  ul
+    border-left: 1px solid $BLACK
+    border-right: 1px solid $BLACK
+    padding: 9px 0 10px
 
 // TABS
 .tabs
   background: $BEIGE-LIGHT
+  // background: #EEE
   ul
     border-left: 1px solid $BEIGE
     border-right: 1px solid $BEIGE
@@ -159,7 +169,7 @@ abbr
 .post-main
   line-height: 1.3
   margin-left: 50px
-  padding: 20px 30px
+  padding: 25px 30px
 
 .post-empty
   line-height: 1.2
@@ -325,7 +335,7 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
     font-family: "aw-conqueror-carved-one"
     font-size: emCalc(32px)
     font-weight: 100
-    padding: 10px 0
+    padding: 8px 0
 
 .welcome-tagline
   background: $NAVY
@@ -340,7 +350,7 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   line-height: 1.3
   text-align: center
   text-shadow: 0 1px 0 $BLACK
-  padding: 17px 80px
+  padding: 20px 80px
 
 .welcome-tabs
   ul
@@ -352,7 +362,7 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
 // NEW USER
 .new_user
   background: #FFF
-  border: 1px solid $BEIGE
+  border: 1px solid $BEIGE-LIGHT
   border-top: 0
   border-radius: 0 0 4px 4px
   padding: 40px 50px
@@ -449,12 +459,12 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
     ul
       li
         &:first-child
-          width: 33.33%
+          width: 25%
         &:nth-child(2)
-          width: 16.665%
+          width: 25%
         &:nth-child(3)
-          width: 16.665%
+          width: 25%
         &:nth-child(4)
           border-left: 0
           margin-left: 0
-          width: 33.33%
+          width: 25%

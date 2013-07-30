@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :vote_on]
   def new
     @post = Post.new
   end
@@ -16,12 +17,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def vote_on
-    @post = Post.find(params[:id])
     current_user.vote(@post, { direction: params[:direction], exclusive: true })
   end
 
   private
+    def set_post
+      @post = Post.find(params[:id])
+    end
+
     def post_params
       params[:post].permit(:content, :community_ids)
     end
