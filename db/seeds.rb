@@ -28,10 +28,10 @@ puts "CREATE USERS"
   )
   5.times do
     post = user.posts.create(
-      content: Faker::HipsterIpsum.words(rand(1..50)).join(" ")[0..140],
+      content: Faker::HipsterIpsum.words(rand(1..50)).join(" "),
       communities: Community.all.sample(rand(2..5)),
       approved: rand(1..2).odd? ? true : false
     )
-    # post.update_attribute :created_at, rand(1..30).days.ago
+    post.update_attribute :created_at, rand(1..30).days.ago
   end
 end

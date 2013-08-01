@@ -20,7 +20,10 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, :location => after_inactive_sign_up_path_for(resource)
       end
       # Send welcome email
-      UserMailer.delay.welcome(resource, random_password)
+      begin
+        UserMailer.delay.welcome(resource, random_password)
+      rescue
+      end
     else
       @communities = params[:user][:community_ids]
       clean_up_passwords resource

@@ -21,6 +21,9 @@ body
 abbr
   border: 0
 
+ul
+  list-style: none
+
 .group:after
   content: ""
   display: table
@@ -31,118 +34,122 @@ abbr
 
 // HEADER
 .header
-  background: $NAVY
-  // background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
-  // background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
-  // border-bottom: 1px solid $BLACK
+  background: $NAVY-DARK
+  background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY-DARK, $BLACK)
   // box-shadow: 0 1px 0 rgba(41,45,52, 0.5) inset, 0 -1px 0 rgba(41,45,52, 0.2) inset, 0px 1px 1px rgba(0,0,0,.2)
+  // box-shadow: 0px 1px 0 rgba(0,0,0,0.2)
+  border-bottom: 1px solid $BLACK
   // position: relative
   // z-index: 10
   ul
-    border-left: 1px solid $NAVY-DARK
-    border-right: 1px solid $NAVY-DARK
-    list-style: none
-    width: 100%
+    text-align: center
     li
-      display: inline-block
-      height: 100%
-      a:before
-        content: ''
-        display: inline-block
-        height: 100%
-        vertical-align: middle
       a
-        color: $NAVY-LIGHT
-        display: inline-block
-        font-weight: 100
-        height: 40px
-        text-align: center
-        text-shadow: 0 1px 0 $BLACK
+        color: $NAVY
+        display: block
+        font-family: "aw-conqueror-carved-one"
+        font-size: emCalc(32px)
+        line-height: 49px
         vertical-align: middle
         width: 100%
-        // i
-        //   position: relative
-        //   top: 1px
-        &:hover
-          color: #FFF
-      &:first-child
-        // border-right: 1px solid $NAVY-DARK
-        width: 11.15%
-        width: 10%
-        a
-          font-family: "aw-conqueror-carved-one"
-          font-size: emCalc(25px)
-      &:nth-child(2)
-        // border-right: 1px solid $NAVY-DARK
-        width: 11.15%
-        width: 10%
-      &:nth-child(3)
-        // border-right: 1px solid $NAVY-DARK
-        width: 11.15%
-        width: 10%
-      &:nth-child(4)
-        // border-left: 1px solid $NAVY-DARK
-        // margin-left: 33.1%
-        // width: 33.45%
-        width: 10%
-        a
-          font-weight: 600
+
+// NAVIGATION
+.navigation
+  background: $NAVY
+  background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, #42464d)
+  border-bottom: 1px solid #D5D0C5
+  // border-top: 1px solid $NAVY
+  // border-top: 1px solid #ff0
+  // box-shadow: 0 1px 0 rgba(41,45,52, 0.5) inset, 0 -1px 0 rgba(41,45,52, 0.2) inset, 0px 1px 1px rgba(0,0,0,.2)
+  // box-shadow: 0px 1px 0 rgba(0,0,0,0.2)
+  // position: relative
+  // z-index: 9
+  ul
+    // border-left: 1px solid $NAVY-DARK
+    // border-right: 1px solid $NAVY-DARK
+    li
+      display: inline-block
+      text-align: center
+      width: 11.11%
+      a
+        color: $NAVY-LIGHT
+        display: block
+        line-height: 49px
         i
           font-weight: 100
-          // padding-right: 8px
+        &:hover
+          color: #FFF
+      &:last-child
+        // border-left: 1px solid $NAVY-DARK
+        float: right
+        width: 22.22%
+    li.active
+      a
+        background: rgba(255,255,255,0.1)
+        color: #CCC
 
-.header ul li.active a
-  background: rgba(255,255,255,0.1)
-  color: #CCC
-  &:hover
-    color: #CCC
+.submit-button
+  background: $ORANGE
+  background-image: url("noise.png")//, -webkit-linear-gradient(top, $ORANGE, $ORANGE-DARK)
+  a
+    color: #E5E5E5 !important
+    i
+      font-weight: 100
+      padding-right: 8px
 
-.community-header
-  background: $NAVY-DARK
-  color: #FFF
+// TAGLINE
+.tagline
+  background: rgba(255,255,255,0.05)
+  color: $NAVY-LIGHT
+  font-size: emCalc(18px)
+  font-weight: 600
+  line-height: 1.3
+  padding: 16px 0
   text-align: center
-  ul
-    border-left: 1px solid $BLACK
-    border-right: 1px solid $BLACK
-    padding: 9px 0 10px
+  text-shadow: 0 1px 0 $BLACK
 
 // TABS
 .tabs
-  background: $BEIGE-LIGHT
-  // background: #EEE
   ul
+    background: $BEIGE-LIGHT
     border-left: 1px solid $BEIGE
     border-right: 1px solid $BEIGE
-    list-style: none
     li
       display: inline-block
-      line-height: 50px
-      width: 33.33%
+      text-align: center
       a
         color: #A2A59E
         display: block
-        text-align: center
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8)
+        line-height: 50px
         i
           padding-right: 8px
-      &:not(.active)
-        a
-          &:hover
-            color: $GREY
-      &:nth-child(2)
-        border-left: 1px solid $BEIGE
-        border-right: 1px solid $BEIGE
+    li.active
+      a
+        background: #FFF
+        color: $GREY
+        display: block
 
-.tabs ul li.active a
-  background: #FFF
-  color: $GREY
-
-// COMMUNITIES
-.tabs-communities
+.tabs.tabs-1
   ul
     li
       width: 100%
 
+.tabs.tabs-2
+  ul
+    li
+      width: 50%
+      &:first-child
+        border-right: 1px solid $BEIGE
+
+.tabs.tabs-3
+  ul
+    li
+      width: 33.33%
+      &:nth-child(2)
+        border-left: 1px solid $BEIGE
+        border-right: 1px solid $BEIGE
+
+// COMMUNITIES
 #s2id_search .select2-search-choice
   display: none
 
@@ -157,6 +164,236 @@ abbr
   background: #FFF
   border: 1px solid $BEIGE
   border-radius: 0 0 4px 4px
+  padding: 1em
+
+
+
+//     border-left: 1px solid $BEIGE
+//     border-right: 1px solid $BEIGE
+//     list-style: none
+//     li
+//       display: inline-block
+//       line-height: 56px
+//       width: 33.33%
+//       a
+//         color: #A2A59E
+//         display: block
+//         text-align: center
+//         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8)
+//         i
+//           padding-right: 8px
+//       &:not(.active)
+//         a
+//           &:hover
+//             color: $GREY
+//       &:nth-child(2)
+//         border-left: 1px solid $BEIGE
+//         border-right: 1px solid $BEIGE
+
+// .tabs ul li.active a
+//   background: #FFF
+//   color: $GREY
+
+// // WELCOME
+// .welcome-header
+//   background: $NAVY-DARK
+
+// .welcome-logo
+//   // background: rgba(255,255,255,0.01)
+//   // border-left: 1px solid $BLACK
+//   // border-right: 1px solid $BLACK
+//   text-align: center
+//   a
+//     color: $NAVY
+//     display: inline-block
+//     font-family: "aw-conqueror-carved-one"
+//     font-size: emCalc(32px)
+//     font-weight: 100
+//     padding: 8px 0
+
+// .welcome-tagline
+//   background: $NAVY
+
+// .tagline
+//   background: rgba(255,255,255,0.05)
+//   // border-bottom: 1px solid $NAVY-DARK
+//   // border-left: 1px solid $NAVY-DARK
+//   // border-right: 1px solid $NAVY-DARK
+//   color: $NAVY-LIGHT
+//   font-size: emCalc(18px)
+//   font-weight: 600
+//   line-height: 1.3
+//   text-align: center
+//   text-shadow: 0 1px 0 $BLACK
+//   padding: 20px //125px
+
+// .welcome-tabs
+//   ul
+//     li
+//       width: 50%
+//       &:nth-child(2)
+//         border-right: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .navigation.show-for-small
+//   ul
+//     li
+//       width: 33.33%
+
+// .navigation.hide-for-small
+//   ul
+//     border-left: 1px solid $NAVY-DARK
+//     border-right: 1px solid $NAVY-DARK
+//     li
+//       width: 11.11%
+//       a
+//         i
+//       &:last-child
+//         float: right
+//         width: 33.33%
+//         a
+//           i
+//             padding-right: 8px
+
+
+
+// .community-bar
+//   background: $NAVY-DARK
+//   color: $NAVY
+//   font-family: "aw-conqueror-carved-one"
+//   font-size: emCalc(32px)
+//   text-align: center
+
+// .community-header
+//   background: $NAVY-DARK
+//   color: #FFF
+//   text-align: center
+//   ul
+//     border-left: 1px solid $BLACK
+//     border-right: 1px solid $BLACK
+//     padding: 9px 0 10px
+
+// // HEADER
+// .header
+//   background: $NAVY
+//   // background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
+//   // background-image: url("noise.png"), -webkit-linear-gradient(top, $NAVY, $NAVY-DARK)
+//   // border-bottom: 1px solid $BLACK
+//   // box-shadow: 0 1px 0 rgba(41,45,52, 0.5) inset, 0 -1px 0 rgba(41,45,52, 0.2) inset, 0px 1px 1px rgba(0,0,0,.2)
+//   // position: relative
+//   // z-index: 10
+//   ul
+//     border-left: 1px solid $NAVY-DARK
+//     border-right: 1px solid $NAVY-DARK
+//     list-style: none
+//     width: 100%
+//     li
+//       display: inline-block
+//       height: 100%
+//       width: 11.11%
+//       a:before
+//         content: ''
+//         display: inline-block
+//         height: 100%
+//         vertical-align: middle
+//       a
+//         color: $NAVY-LIGHT
+//         display: inline-block
+//         font-size: emCalc(15px)
+//         font-weight: 100
+//         height: 42px
+//         text-align: center
+//         text-shadow: 0 1px 0 $BLACK
+//         vertical-align: middle
+//         width: 100%
+//         // i
+//         //   position: relative
+//         //   top: 1px
+//         &:hover
+//           color: #FFF
+//       &:first-child
+//         // border-right: 1px solid $NAVY-DARK
+//         // width: 11.15%
+//         // width: 10%
+//         // a
+//         //   font-family: "aw-conqueror-carved-one"
+//         //   font-size: emCalc(25px)
+//       &:nth-child(2)
+//         // border-right: 1px solid $NAVY-DARK
+//         // width: 11.15%
+//         // width: 10%
+//       &:nth-child(3)
+//         // border-right: 1px solid $NAVY-DARK
+//         // width: 11.15%
+//         // width: 10%
+//       &:nth-child(4)
+//         background: $ORANGE
+//         // border-left: 1px solid $NAVY-DARK
+//         // margin-left: 33.1%
+//         width: 33.33%
+//         // width: 10%
+//         a
+//           color: #FFF
+//           font-weight: 600
+//           text-shadow: 0 1px 0 $ORANGE-DARK
+//         i
+//           font-weight: 100
+//           padding-right: 8px
+
+// .header ul li.active a
+//   background: rgba(255,255,255,0.1)
+//   color: #CCC
+//   &:hover
+//     color: #CCC
+
+// .logo-large
+//   // color: $NAVY-DARK
+//   // text-align: center
+//   // // box-shadow: 0px 1px 0 rgba(0,0,0,0.2)
+//   // // position: relative
+//   // // z-index: 10
+//   // a
+//   //   color: $NAVY
+//   //   display: inline-block
+//   //   font-family: "aw-conqueror-carved-one"
+//   //   font-size: emCalc(25px)
+//   //   line-height: 42px
+//   float: left
+//   height: 40px
+//   width: 40px
+//   text-align: center
+//   a:before
+//     content: ''
+//     display: inline-block
+//     height: 100%
+//     vertical-align: middle
+//   a
+//     color: $NAVY-DARK
+//     display: block
+//     font-family: "aw-conqueror-carved-one"
+//     font-size: emCalc(25px)
+//     height: 100%
+
+// .community-header
+//   background: $NAVY-DARK
+//   color: #FFF
+//   text-align: center
+//   ul
+//     border-left: 1px solid $BLACK
+//     border-right: 1px solid $BLACK
+//     padding: 9px 0 10px
 
 // POST
 .post
@@ -321,48 +558,10 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   margin-bottom: 1em
   padding: 8px 10px
 
-// WELCOME
-.welcome-header
-  background: $NAVY-DARK
-
-.welcome-logo
-  border-left: 1px solid $BLACK
-  border-right: 1px solid $BLACK
-  text-align: center
-  a
-    color: $NAVY
-    display: inline-block
-    font-family: "aw-conqueror-carved-one"
-    font-size: emCalc(32px)
-    font-weight: 100
-    padding: 8px 0
-
-.welcome-tagline
-  background: $NAVY
-
-.tagline
-  border-bottom: 1px solid $NAVY-DARK
-  border-left: 1px solid $NAVY-DARK
-  border-right: 1px solid $NAVY-DARK
-  color: $NAVY-LIGHT
-  font-size: emCalc(18px)
-  font-weight: 600
-  line-height: 1.3
-  text-align: center
-  text-shadow: 0 1px 0 $BLACK
-  padding: 20px 80px
-
-.welcome-tabs
-  ul
-    li
-      width: 50%
-      &:nth-child(2)
-        border-right: 0
-
 // NEW USER
 .new_user
   background: #FFF
-  border: 1px solid $BEIGE-LIGHT
+  border: 1px solid $BEIGE
   border-top: 0
   border-radius: 0 0 4px 4px
   padding: 40px 50px
@@ -388,6 +587,8 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   margin-top: 2em
   padding: 30px 1em 5px
   text-align: left
+  strong
+    text-decoration: underline
   span
     background: $ORANGE
     border-radius: 1000px
@@ -445,26 +646,21 @@ input[type="tel"], input[type="time"], input[type="url"], textarea
   .column, .columns
     padding: 0
 
-  // WELCOME
+  // NAVIGATION
+  .navigation
+    ul
+      border: 0
+      li
+        width: 24%
+        &:last-child
+          width: 28%
+
+  // TAGLINE
   .tagline
-    padding: 17px 0
+    padding: 18px 60px
 
   // NEW USER
   .new_user
     border-radius: 0
-    padding: 40px 20px
+    padding: 40px
 
-  // HEADER
-  .header
-    ul
-      li
-        &:first-child
-          width: 25%
-        &:nth-child(2)
-          width: 25%
-        &:nth-child(3)
-          width: 25%
-        &:nth-child(4)
-          border-left: 0
-          margin-left: 0
-          width: 25%

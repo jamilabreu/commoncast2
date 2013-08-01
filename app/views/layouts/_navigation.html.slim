@@ -1,0 +1,17 @@
+.navigation
+  .row
+    .large-8.large-centered.columns
+      ul
+        li class=("active" if current_page? root_path)
+          = link_to root_path do
+            i.icon-reorder
+        li class=("active" if current_page? communities_path)
+          = link_to communities_path do
+            i.icon-search
+        li class=("active" if current_page? edit_user_registration_path)
+          = link_to edit_user_registration_path do
+            i.icon-user
+        li.submit-button
+          = link_to new_post_path do
+            i.icon-rss
+            | Submit

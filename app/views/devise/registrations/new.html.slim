@@ -1,11 +1,8 @@
 - content_for :javascript do
   = javascript_include_tag "select2", "users/new"
 
-.welcome-header
-  .row
-    .large-7.large-centered.columns
-      .welcome-logo= link_to "COMMONCAST", root_path
-.welcome-tagline
+= render 'layouts/header'
+.navigation
   .row
     .large-7.large-centered.columns
       .tagline
@@ -13,8 +10,11 @@
         / | share links, events and announcements with people who have common interests
         / | broadcast 140 characters to people you share common interests with
         / | share links, events, and announcements with people in the communities you care about
-        | broadcast links, events, and announcements to people you share interests in common with
-.tabs.welcome-tabs
+        / | broadcast links, events, and announcements to people you share interests in common with
+        / | share links, events, and announcements with people in the communities you care about
+        / | share links, events, and messages with people who share your interests
+        | share links, events, and notes with people exactly like you
+.tabs.tabs-2
   .row
     .large-7.large-centered.columns
       ul
@@ -45,14 +45,17 @@
           i.icon-caret-down
           .learn-more-steps
             span 1
-            div Submit a link, event, or announcement - attaching at least two hashtags to it.
+            div
+              ' Submit a link, event, or note - attaching
+              strong two or more
+              | &nbsp;hashtags to it.
             BR
             span 2
             div
               ' Anyone following
-              strong at least two
+              strong two or more
               | &nbsp;of the hashtags in your post can view and vote to approve it.
             BR
             span 3
-            div Each week, everyone recieves an email newsletter of approved posts relevant them.
+            div Each week, everyone recieves an email newsletter of approved posts, sorted by relevance to them.
     / = render "devise/shared/links"

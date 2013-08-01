@@ -11,7 +11,9 @@
     .post-content
       - if post.approved?
         i.icon-ok style="color: #669933; margin-right: 6px"
-      = auto_link(post.content, html: { target: "_blank" })
+      = auto_link(truncate(post.content, length: 140))
+      / - auto_link('Check it out at http://www.pokemon.com') do |url|
+      /   = truncate(url, length: 10)
     .post-hashtags
       = post.communities.map { |community| link_to community.hashtag, community }.join("&nbsp;&nbsp;").html_safe
       .post-comments
