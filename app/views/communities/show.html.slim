@@ -4,8 +4,8 @@
 .row
   .large-8.large-centered.columns
     = render @posts
-    - if @pending.present?
-      .pending-bar
-        i.icon-info-sign
-        | Posts below this line are up for review.
-      = render @pending
+    / - if @pending.present?
+    /   .pending-bar
+    /     i.icon-info-sign
+    /     | Posts below this line are up for review.
+    /   = render @pending

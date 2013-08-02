@@ -39,10 +39,10 @@ class CommunitiesController < ApplicationController
 
   def show
     if params[:recent]
-      @posts = @community.posts.order(created_at: :desc)
+      @posts = @community.posts.joins(:communities).where(communities: {id: current_user.community_ids}).order(created_at: :desc)
     else
-      @posts = @community.posts.joins(:communities).where(approved: true, communities: {id: current_user.community_ids}).select('posts.*, COUNT(distinct communities.id) AS community_count').having('COUNT(distinct communities.id) >= 2').group('posts.id').order('community_count DESC')
-      @pending = @community.posts.joins(:communities).where(approved: false, communities: { id: current_user.community_ids }).select('posts.*, COUNT(distinct communities.id) AS community_count').having('COUNT(distinct communities.id) >= 2').group('posts.id').order('community_count DESC')
+      @posts = @community.posts.joins(:communities).where(communities: {id: current_user.community_ids}).select('posts.*, COUNT(distinct communities.id) AS community_count').having('COUNT(distinct communities.id) >= 2').group('posts.id').order('community_count DESC')
+      # @pending = @community.posts.joins(:communities).where(approved: false, communities: { id: current_user.community_ids }).select('posts.*, COUNT(distinct communities.id) AS community_count').having('COUNT(distinct communities.id) >= 2').group('posts.id').order('community_count DESC')
     end
   end
 

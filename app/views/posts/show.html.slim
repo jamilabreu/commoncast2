@@ -1,1 +1,6 @@
-= render @post
+/ = render 'layouts/header'
+= render 'layouts/navigation'
+.row
+  .large-8.large-centered.columns
+    = render @post
+    / = simple_form_for
