@@ -1,0 +1,12 @@
+.tabs.tabs-2
+  .row
+    .large-7.large-centered.columns
+      ul
+        li class=("active" if current_page? new_user_registration_path)
+          = link_to new_user_registration_path do
+            i.icon-asterisk
+            | Sign Up
+        li class=("active" if current_page? new_user_session_path)
+          = link_to new_user_session_path do
+            i.icon-signin
+            | Login

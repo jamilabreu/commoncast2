@@ -28,7 +28,7 @@ puts "CREATE USERS"
   )
   5.times do
     post = user.posts.create(
-      content: Faker::HipsterIpsum.words(rand(1..50)).join(" "),
+      content: Faker::HipsterIpsum.words(rand(1..50)).join(" ")[0..140],
       communities: Community.all.sample(rand(2..5)),
       approved: rand(1..2).odd? ? true : false
     )

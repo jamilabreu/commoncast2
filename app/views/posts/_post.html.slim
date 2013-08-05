@@ -9,13 +9,15 @@
           i.icon-remove
   .post-main
     .post-content
-      = auto_link(truncate(post.content, length: 140))
-    .post-details
-      .post-comments
-        = link_to post do
-          i.icon-comments-alt
-          | Discuss
-      span |
+      / = auto_link(truncate(post.content, length: 140))
+      = auto_link(post.content)
+    .post-details.hide-for-small
+      - unless current_page? post_path(post)
+        .post-comments
+          = link_to post do
+            i.icon-comments-alt
+            | Discuss
+        span |
       - if post.approved?
         i.icon-ok
         span |
@@ -24,3 +26,19 @@
       - if params[:recent] || params[:rewind]
         .post-created
           = time_ago_in_words(post.created_at)
+    .post-details.show-for-small
+      .post-hashtags
+        = post.communities.map { |community| "<div>#{community.hashtag}</div>" }.join("&nbsp;&nbsp;").html_safe
+      - if params[:recent] || params[:rewind]
+        .post-created
+          = time_ago_in_words(post.created_at)
+    .post-details.show-for-small
+      - unless current_page? post_path(post)
+        .post-comments
+          = link_to post do
+            i.icon-comments-alt
+            | Discuss
+      - if post.approved?
+        - unless current_page? post_path(post)
+          span |
+        i.icon-ok

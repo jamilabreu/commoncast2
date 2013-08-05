@@ -1,21 +1,6 @@
 = render 'layouts/header'
-.navigation
-  .row
-    .large-7.large-centered.columns
-      .tagline
-        | share links, events, and notes with people exactly like you
-.tabs.tabs-2
-  .row
-    .large-7.large-centered.columns
-      ul
-        li
-          = link_to new_user_registration_path do
-            i.icon-asterisk
-            | Sign Up
-        li class=("active")
-          = link_to new_user_session_path do
-            i.icon-signin
-            | Login
+= render 'devise/registrations/tagline'
+= render 'devise/registrations/tabs'
 .row
   .large-7.large-centered.columns
     = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
